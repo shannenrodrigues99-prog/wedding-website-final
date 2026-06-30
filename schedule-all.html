@@ -28,34 +28,65 @@
 
     /* ===== NAV ===== */
 
-.topnav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
+    .topnav{
+      position:fixed;
+      top:28px;
+      left:50%;
+      transform:translateX(-50%);
+      width:calc(100% - 80px);
 
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
+      display:flex;
+      justify-content:flex-start;
+      align-items:center;
 
-  font-family:"Montserrat", sans-serif;
-  font-weight:500;
-  text-transform:uppercase;
-  letter-spacing:0.34em;
-  font-size:11px;
+      font-family:"Montserrat", sans-serif;
+      font-weight:500;
+      text-transform:uppercase;
+      letter-spacing:0.34em;
+      font-size:11px;
 
-  z-index:1000;
+      z-index:1000;
 
-  padding:28px 40px 18px;
+      padding-bottom:18px;
 
-  color:#2B2B2B;
+      color:#2B2B2B;
 
-  border-bottom:1px solid rgba(43,43,43,.10);
+      border-bottom:1px solid rgba(43,43,43,.10);
 
-  background:#ffffff;
+      background:#ffffff;
 
-  overflow:hidden;
-}
+      overflow:hidden;
+    }
+
+    .topnav .left{
+      display:flex;
+      gap:56px;
+      align-items:center;
+    }
+
+    .topnav a{
+      color:#2B2B2B;
+      text-decoration:none;
+      opacity:.78;
+      transition:opacity .2s ease;
+    }
+
+    .topnav a:hover{
+      opacity:1;
+    }
+
+    .topnav .rsvp{
+      margin-left:56px;
+
+      padding:4px 14px;
+
+      border:1px solid rgba(43,43,43,.55);
+      border-radius:999px;
+
+      letter-spacing:0.34em;
+
+      opacity:1;
+    }
 
     /* ===== PAGE ===== */
 
