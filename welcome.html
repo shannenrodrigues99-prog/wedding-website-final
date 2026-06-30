@@ -1,1 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome | Shannen & Samarth</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Playfair Display", serif;
+      background:#ffffff;
+      color:#111;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    /* ===== NAV ===== */
+
+    .topnav{
+      position:fixed;
+      top:28px;
+      left:50%;
+      transform:translateX(-50%);
+      width:calc(100% - 80px);
+
+      display:flex;
+      justify-content:flex-start;
+      align-items:center;
+
+      font-family:"Montserrat", sans-serif;
+      font-weight:500;
+      text-transform:uppercase;
+      letter-spacing:0.34em;
+      font-size:11px;
+
+      z-index:1000;
+
+      padding-bottom:18px;
+
+      color:#2B2B2B;
+
+      border-bottom:1px solid rgba(43,43,43,.10);
+
+      background:#ffffff;
+
+      overflow:hidden;
+    }
+
+    .topnav .left{
+      display:flex;
+      gap:56px;
+      align-items:center;
+    }
+
+    .topnav a{
+      color:#2B2B2B;
+      text-decoration:none;
+      opacity:.78;
+      transition:opacity .2s ease;
+    }
+
+    .topnav a:hover{
+      opacity:1;
+    }
+
+    .topnav .rsvp{
+      margin-left:56px;
+
+      padding:4px 14px;
+
+      border:1px solid rgba(43,43,43,.55);
+      border-radius:999px;
+
+      letter-spacing:0.34em;
+
+      opacity:1;
+    }
+
+    /* ===== PAGE ===== */
+
+    .wrap{
+      min-height:100vh;
+
+      padding:150px 80px 90px;
+
+      display:grid;
+
+      grid-template-columns:1fr 0.72fr;
+
+      gap:78px;
+
+      align-items:center;
+
+      max-width:1280px;
+
+      margin:0 auto;
+    }
+
+    .content{
+      text-align:center;
+
+      padding-left:30px;
+    }
+
+    .eyebrow{
+      font-family:"Montserrat", sans-serif;
+
+      font-size:10px;
+
+      letter-spacing:0.42em;
+
+      text-transform:uppercase;
+
+      color:#777;
+
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-family:"Playfair Display", serif;
+
+      font-size:clamp(40px, 5vw, 68px);
+
+      font-weight:400;
+
+      letter-spacing:0.04em;
+
+      line-height:0.9;
+
+      margin-bottom:30px;
+    }
+
+    .welcome-text{
+      font-family:"Montserrat", sans-serif;
+
+      font-size:13px;
+
+      font-weight:300;
+
+      line-height:2;
+
+      letter-spacing:0.04em;
+
+      color:#555;
+
+      max-width:560px;
+
+      margin:0 auto 36px;
+    }
+
+    .welcome-signoff{
+      font-family:"Montserrat", sans-serif;
+
+      font-size:10px;
+
+      font-weight:500;
+
+      letter-spacing:0.28em;
+
+      text-transform:uppercase;
+
+      color:#777;
+
+      margin-bottom:20px;
+    }
+
+    .signature{
+      max-width:320px;
+
+      width:100%;
+
+      height:auto;
+
+      display:block;
+
+      margin:0 auto;
+    }
+    .photo-wrap{
+      width:100%;
+
+      height:68vh;
+
+      min-height:520px;
+
+      overflow:hidden;
+
+      position:relative;
+    }
+
+    .photo-wrap img{
+      width:100%;
+
+      height:100%;
+
+      object-fit:cover;
+
+      display:block;
+
+      filter:grayscale(10%) contrast(.96) brightness(1.03);
+    }
+
+    .photo-wrap::after{
+      content:"";
+
+      position:absolute;
+
+      inset:0;
+
+      background:rgba(255,255,255,.08);
+
+      pointer-events:none;
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media (max-width:768px){
+
+      body{
+        overflow-y:auto;
+      }
+
+      .topnav{
+        top:calc(25px + env(safe-area-inset-top));
+
+        width:100%;
+
+        padding:0 20px 16px;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:16px;
+
+        font-size:10px;
+
+        letter-spacing:0.28em;
+
+        border-bottom:1px solid rgba(43,43,43,.10);
+
+        isolation:isolate;
+      }
+
+      .topnav::before{
+        content:"";
+
+        position:absolute;
+
+        left:0;
+        right:0;
+
+        top:calc(-25px - env(safe-area-inset-top));
+
+        height:calc(100% + 25px + env(safe-area-inset-top));
+
+        background:rgba(255,255,255,0.84);
+
+        backdrop-filter:blur(14px) saturate(160%);
+        -webkit-backdrop-filter:blur(14px) saturate(160%);
+
+        z-index:-1;
+      }
+
+      .topnav .left{
+        gap:24px;
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+      }
+
+      .topnav .rsvp{
+        margin-left:0;
+
+        padding:8px 16px;
+      }
+
+      .wrap{
+        min-height:auto;
+
+        padding:170px 24px 60px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:42px;
+      }
+
+      .content{
+        padding-left:0;
+      }
+
+      h1{
+        font-size:44px;
+
+        margin-bottom:26px;
+      }
+
+      .welcome-text{
+        font-size:11.5px;
+
+        line-height:1.8;
+
+        margin:0 auto 34px;
+      }
+
+      .signature{
+        max-width:300px;
+      }
+
+      .photo-wrap{
+        height:420px;
+
+        min-height:420px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav class="topnav">
+
+    <div class="left">
+      <a href="index.html">Home</a>
+      <a href="welcome.html" style="font-weight:600; opacity:1;">Welcome</a>
+      <a id="scheduleLink" href="#">Schedule</a>
+      <a id="faqLink" href="#">FAQs</a>
+    </div>
+
+    <a class="rsvp" href="rsvp.html">RSVP</a>
+
+  </nav>
+
+  <main class="wrap">
+
+    <section class="content">
+
+      <div class="eyebrow">
+        A Note From Us
+      </div>
+
+      <h1>Welcome</h1>
+
+      <div class="welcome-text">
+        We are so excited to celebrate our wedding with the people we love most.
+        <br><br>
+        Here you will find all the details for the celebrations ahead, and we cannot wait to share this special occasion with you.
+      </div>
+
+      <div class="welcome-signoff">
+        With love,
+      </div>
+
+      <img src="signature.png" alt="Shannen and Samarth" class="signature">
+
+    </section>
+
+    <section class="photo-wrap">
+
+      <img src="welcome-photo.jpg" alt="Shannen and Samarth">
+
+    </section>
+
+  </main>
+    <script>
+    if (sessionStorage.getItem("siteUnlocked") !== "1") {
+      window.location.replace("index.html");
+    }
+
+    const guestType = sessionStorage.getItem("guestType");
+
+    const pages = {
+      all: {
+        schedule: "schedule-all.html",
+        faq: "faqs-all.html"
+      },
+
+      saturday: {
+        schedule: "schedule-saturday.html",
+        faq: "faqs-saturday.html"
+      },
+
+      receptionSunday: {
+        schedule: "schedule-reception-sunday.html",
+        faq: "faqs-reception-sunday.html"
+      },
+
+      reception: {
+        schedule: "schedule-reception.html",
+        faq: "faqs-reception.html"
+      }
+    };
+
+    if (!pages[guestType]) {
+      window.location.replace("index.html");
+    }
+
+    document.getElementById("scheduleLink").href = pages[guestType].schedule;
+    document.getElementById("faqLink").href = pages[guestType].faq;
+  </script>
+
+</body>
+</html>
