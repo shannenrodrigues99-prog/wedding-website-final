@@ -1,1 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule | Shannen & Samarth</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:"Playfair Display", serif;
+      background:#ffffff;
+      color:#111;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+   /* ===== NAV ===== */
+
+.topnav{
+  position:fixed;
+  top:28px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 80px);
+
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+
+  font-family:"Montserrat", sans-serif;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.34em;
+  font-size:11px;
+
+  z-index:1000;
+
+  padding-bottom:18px;
+
+  color:#2B2B2B;
+
+  border-bottom:1px solid rgba(43,43,43,.10);
+
+  background:#ffffff;
+
+  overflow:visible;
+}
+
+/* Fills the gap above the navbar */
+.topnav::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:-28px;
+  height:28px;
+  background:#ffffff;
+}
+
+.topnav .left{
+  display:flex;
+  gap:56px;
+  align-items:center;
+}
+
+.topnav a{
+  color:#2B2B2B;
+  text-decoration:none;
+  opacity:.78;
+  transition:opacity .2s ease;
+}
+
+.topnav a:hover{
+  opacity:1;
+}
+
+.topnav .rsvp{
+  margin-left:56px;
+
+  padding:4px 14px;
+
+  border:1px solid rgba(43,43,43,.55);
+  border-radius:999px;
+
+  letter-spacing:0.34em;
+
+  opacity:1;
+}
+
+/* ===== PAGE ===== */
+
+    .wrap{
+      min-height:100vh;
+
+      padding:170px 80px 90px;
+
+      display:flex;
+      justify-content:center;
+    }
+
+    .content{
+      width:100%;
+      max-width:1180px;
+    }
+
+    .header{
+      text-align:center;
+      margin-bottom:70px;
+    }
+        .eyebrow{
+      font-family:"Montserrat", sans-serif;
+
+      font-size:10px;
+
+      letter-spacing:0.42em;
+
+      text-transform:uppercase;
+
+      color:#777;
+
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-family:"Playfair Display", serif;
+
+      font-size:clamp(40px, 5vw, 68px);
+
+      font-weight:400;
+
+      letter-spacing:0.04em;
+
+      line-height:0.9;
+    }
+
+    /* ===== SCHEDULE ===== */
+
+    .schedule-layout{
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:78px;
+
+      align-items:start;
+    }
+
+    .schedule-list{
+      display:grid;
+
+      gap:42px;
+
+      text-align:left;
+    }
+
+    .schedule-item{
+      border-top:1px solid rgba(43,43,43,.12);
+
+      padding-top:22px;
+    }
+
+    .schedule-question{
+      font-family:"Montserrat", sans-serif;
+
+      font-size:11px;
+
+      font-weight:500;
+
+      letter-spacing:0.28em;
+
+      text-transform:uppercase;
+
+      line-height:1.8;
+
+      margin-bottom:14px;
+
+      color:#111;
+    }
+
+    .schedule-answer{
+      font-family:"Montserrat", sans-serif;
+
+      font-size:13px;
+
+      font-weight:300;
+
+      line-height:1.8;
+
+      letter-spacing:0.04em;
+
+      color:#555;
+    }
+
+    .schedule-answer strong{
+      font-weight:600;
+      color:#111;
+    }
+
+    .schedule-photo img{
+      width:100%;
+      height:640px;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media (max-width:768px){
+
+      body{
+        overflow-y:auto;
+      }
+
+      .topnav{
+        top:calc(25px + env(safe-area-inset-top));
+        width:100%;
+        padding:0 20px 16px;
+        flex-direction:column;
+        align-items:center;
+        gap:16px;
+        font-size:10px;
+        letter-spacing:0.28em;
+        border-bottom:1px solid rgba(43,43,43,.10);
+        isolation:isolate;
+      }
+
+      .topnav::before{
+        content:"";
+        position:absolute;
+        left:0;
+        right:0;
+        top:calc(-25px - env(safe-area-inset-top));
+        height:calc(100% + 25px + env(safe-area-inset-top));
+        background:rgba(255,255,255,.84);
+        backdrop-filter:blur(14px) saturate(160%);
+        -webkit-backdrop-filter:blur(14px) saturate(160%);
+        z-index:-1;
+      }
+
+      .topnav .left{
+        gap:24px;
+        justify-content:center;
+        flex-wrap:wrap;
+      }
+
+      .topnav .rsvp{
+        margin-left:0;
+        padding:8px 16px;
+      }
+
+      .wrap{
+        min-height:auto;
+        padding:175px 24px 70px;
+      }
+
+      .header{
+        margin-bottom:46px;
+      }
+
+      .eyebrow{
+        font-size:9px;
+        margin-bottom:18px;
+      }
+
+      h1{
+        font-size:44px;
+      }
+
+      .schedule-layout{
+        grid-template-columns:1fr;
+        gap:42px;
+      }
+
+      .schedule-list{
+        gap:34px;
+      }
+
+      .schedule-question{
+        font-size:9.5px;
+        letter-spacing:0.22em;
+        margin-bottom:12px;
+      }
+
+      .schedule-answer{
+        font-size:11.5px;
+        line-height:1.8;
+      }
+
+      .schedule-photo img{
+        height:360px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav class="topnav">
+
+    <div class="left">
+      <a href="index.html">Home</a>
+      <a href="welcome.html">Welcome</a>
+      <a id="scheduleLink" href="#" style="font-weight:600; opacity:1;">Schedule</a>
+      <a id="faqLink" href="#">FAQs</a>
+    </div>
+
+    <a class="rsvp" href="rsvp.html">RSVP</a>
+
+  </nav>
+
+  <main class="wrap">
+
+    <div class="content">
+
+      <section class="header">
+
+        <div class="eyebrow">
+          Wedding
+        </div>
+
+        <h1>Schedule</h1>
+
+      </section>
+
+      <section class="schedule-layout">
+
+ <section class="schedule-list">
+
+  <!-- SATURDAY -->
+
+  <div class="schedule-item">
+
+    <div class="schedule-question">
+      Saturday, 27 February 2027
+    </div>
+
+    <div class="schedule-answer">
+  
+      <strong>RECEPTION</strong><br>
+      6:00 pm<br><br>
+
+      Abruzzo Molise Sporting Club<br>
+      30 Brook Rd, Wattle Grove<br>
+      WA 6017
+
+      <br><br>
+
+      <strong>Dress code:</strong><br>
+      Formal Attire<br>
+      Western or Indian Traditional
+
+    </div>
+
+  </div>
+
+  <!-- SUNDAY -->
+
+  <div class="schedule-item">
+
+    <div class="schedule-question">
+      Sunday, 28 February 2027
+    </div>
+
+    <div class="schedule-answer">
+
+      <strong>HINDU CEREMONY</strong><br>
+      10:30 am<br><br>
+
+      Shree Jalaram Sanatan Mandir<br>
+      4 Accomplish Way<br>
+      Gnangara WA 6077
+
+      <br><br>
+
+      Lunch to follow
+
+      <br><br>
+
+      <strong>Dress code:</strong><br>
+      Indian Traditional
+
+    </div>
+
+  </div>
+
+</section>
+
+        <section class="schedule-photo">
+
+          <img src="your-photo.jpg" alt="Wedding Photo">
+
+        </section>
+
+      </section>
+
+    </div>
+
+  </main>
+    <script>
+
+    // Redirect to home if not logged in
+    if (sessionStorage.getItem("siteUnlocked") !== "1") {
+      window.location.replace("index.html");
+    }
+
+    const guestType = sessionStorage.getItem("guestType");
+
+    const pages = {
+
+      all: {
+        schedule: "schedule-all.html",
+        faq: "faqs-all.html"
+      },
+
+      saturday: {
+        schedule: "schedule-saturday.html",
+        faq: "faqs-saturday.html"
+      },
+
+      receptionSunday: {
+        schedule: "schedule-reception-sunday.html",
+        faq: "faqs-reception-sunday.html"
+      },
+
+      reception: {
+        schedule: "schedule-reception.html",
+        faq: "faqs-reception.html"
+      }
+
+    };
+
+    // If guest type doesn't exist, return to login
+    if (!pages[guestType]) {
+      window.location.replace("index.html");
+    }
+
+    // Update navigation links
+    document.getElementById("scheduleLink").href = pages[guestType].schedule;
+    document.getElementById("faqLink").href = pages[guestType].faq;
+
+  </script>
+
+</body>
+</html>
