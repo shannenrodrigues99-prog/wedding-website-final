@@ -360,45 +360,82 @@
 
       <section class="schedule-layout">
 
-        <section class="schedule-list">
+<section class="schedule-list">
 
-          <div class="schedule-item">
+  <!-- SATURDAY -->
 
-            <div class="schedule-question">
-              Ceremony
-            </div>
+  <div class="schedule-item" id="churchSection">
 
-            <div class="schedule-answer">
+    <div class="schedule-question">
+      Saturday, 27 February 2027
+    </div>
 
-              <strong>2:00 pm</strong><br><br>
+    <div class="schedule-answer">
 
-              Notre Dame Catholic Church<br>
-              345 Wright St, Cloverdale WA 6105<br><br>
+      <strong>CHURCH CEREMONY</strong><br>
+      2:00 pm<br><br>
 
-              Guests are kindly requested to be seated by 1:45 pm prior to the commencement of the ceremony.
+      Notre Dame Catholic Church<br>
+      345 Wright St, Cloverdale<br>
+      WA 6105<br><br>
 
-            </div>
+      Guests are kindly requested to be seated by
+      <strong>1:45 pm</strong>
+      prior to the commencement of the ceremony.
 
-          </div>
+    </div>
 
-          <div class="schedule-item">
+  </div>
 
-            <div class="schedule-question">
-              Reception
-            </div>
+  <div class="schedule-item" id="receptionSection">
 
-            <div class="schedule-answer">
+    <div class="schedule-question">
+      Reception
+    </div>
 
-              <strong>6:30 pm</strong><br><br>
+    <div class="schedule-answer">
 
-              Abruzzo Molise Sporting Club<br>
-              30 Brook Rd, Wattle Grove WA 6107
+      <strong>6:00 pm</strong><br><br>
 
-            </div>
+      Abruzzo Molise Sporting Club<br>
+      30 Brook Rd, Wattle Grove<br>
+      WA 6017<br><br>
 
-          </div>
+      <strong>Dress code:</strong><br>
+      Formal Attire<br>
+      Western or Indian Traditional
 
-        </section>
+    </div>
+
+  </div>
+
+  <!-- SUNDAY -->
+
+  <div class="schedule-item" id="hinduSection">
+
+    <div class="schedule-question">
+      Sunday, 28 February 2027
+    </div>
+
+    <div class="schedule-answer">
+
+      <strong>HINDU CEREMONY</strong><br>
+      10:30 am<br><br>
+
+      Shree Jalaram Sanatan Mandir<br>
+      4 Accomplish Way<br>
+      Gnangara WA 6077<br><br>
+
+      Lunch to follow<br><br>
+
+      <strong>Dress code:</strong><br>
+      Indian Traditional
+
+    </div>
+
+  </div>
+
+</section>
 
         <section class="schedule-photo">
 
@@ -412,13 +449,48 @@
 
   </main>
 
-  <script>
+<script>
 
-    if (sessionStorage.getItem("siteUnlocked") !== "1") {
-      window.location.replace("index.html");
-    }
+  // Redirect to home if not logged in
+  if (sessionStorage.getItem("siteUnlocked") !== "1") {
+    window.location.replace("index.html");
+  }
 
-  </script>
+  const guestType = sessionStorage.getItem("guestType");
 
-</body>
-</html>
+  const churchSection = document.getElementById("churchSection");
+  const receptionSection = document.getElementById("receptionSection");
+  const hinduSection = document.getElementById("hinduSection");
+
+  if (guestType === "all") {
+
+    // Show everything
+
+  }
+
+  else if (guestType === "saturday") {
+
+    hinduSection.style.display = "none";
+
+  }
+
+  else if (guestType === "receptionSunday") {
+
+    churchSection.style.display = "none";
+
+  }
+
+  else if (guestType === "reception") {
+
+    churchSection.style.display = "none";
+    hinduSection.style.display = "none";
+
+  }
+
+  else {
+
+    window.location.replace("index.html");
+
+  }
+
+</script>
