@@ -26,69 +26,80 @@
       overflow-x:hidden;
     }
 
-    /* ===== NAV ===== */
+   /* ===== NAV ===== */
 
-    .topnav{
-      position:fixed;
-      top:28px;
-      left:50%;
-      transform:translateX(-50%);
-      width:calc(100% - 80px);
+.topnav{
+  position:fixed;
+  top:28px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 80px);
 
-      display:flex;
-      justify-content:flex-start;
-      align-items:center;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
 
-      font-family:"Montserrat", sans-serif;
-      font-weight:500;
-      text-transform:uppercase;
-      letter-spacing:0.34em;
-      font-size:11px;
+  font-family:"Montserrat", sans-serif;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.34em;
+  font-size:11px;
 
-      z-index:1000;
+  z-index:1000;
 
-      padding-bottom:18px;
+  padding-bottom:18px;
 
-      color:#2B2B2B;
+  color:#2B2B2B;
 
-      border-bottom:1px solid rgba(43,43,43,.10);
+  border-bottom:1px solid rgba(43,43,43,.10);
 
-      background:#ffffff;
+  background:#ffffff;
 
-      overflow:hidden;
-    }
+  overflow:visible;
+}
 
-    .topnav .left{
-      display:flex;
-      gap:56px;
-      align-items:center;
-    }
+/* Fills the gap above the navbar */
+.topnav::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:-28px;
+  height:28px;
+  background:#ffffff;
+}
 
-    .topnav a{
-      color:#2B2B2B;
-      text-decoration:none;
-      opacity:.78;
-      transition:opacity .2s ease;
-    }
+.topnav .left{
+  display:flex;
+  gap:56px;
+  align-items:center;
+}
 
-    .topnav a:hover{
-      opacity:1;
-    }
+.topnav a{
+  color:#2B2B2B;
+  text-decoration:none;
+  opacity:.78;
+  transition:opacity .2s ease;
+}
 
-    .topnav .rsvp{
-      margin-left:56px;
+.topnav a:hover{
+  opacity:1;
+}
 
-      padding:4px 14px;
+.topnav .rsvp{
+  margin-left:56px;
 
-      border:1px solid rgba(43,43,43,.55);
-      border-radius:999px;
+  padding:4px 14px;
 
-      letter-spacing:0.34em;
+  border:1px solid rgba(43,43,43,.55);
+  border-radius:999px;
 
-      opacity:1;
-    }
+  letter-spacing:0.34em;
 
-    /* ===== PAGE ===== */
+  opacity:1;
+}
+
+/* ===== PAGE ===== */
 
     .wrap{
       min-height:100vh;
