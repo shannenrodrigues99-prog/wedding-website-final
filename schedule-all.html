@@ -350,9 +350,9 @@
 
       <section class="header">
 
-        <div class="eyebrow">
-          Wedding Day
-        </div>
+<div class="eyebrow">
+  Wedding
+</div>
 
         <h1>Schedule</h1>
 
@@ -389,21 +389,22 @@
 
   <div class="schedule-item" id="receptionSection">
 
-    <div class="schedule-question">
-      Reception
-    </div>
+<div class="schedule-question">
+  Saturday, 27 February 2027
+</div>
 
     <div class="schedule-answer">
 
-      <strong>6:00 pm</strong><br><br>
+<strong>RECEPTION</strong><br>
+6:00 pm<br><br>
 
-      Abruzzo Molise Sporting Club<br>
-      30 Brook Rd, Wattle Grove<br>
-      WA 6017<br><br>
+Abruzzo Molise Sporting Club<br>
+30 Brook Rd, Wattle Grove<br>
+WA 6017<br><br>
 
-      <strong>Dress code:</strong><br>
-      Formal Attire<br>
-      Western or Indian Traditional
+<strong>Dress code:</strong><br>
+Formal Attire<br>
+Western or Indian Traditional
 
     </div>
 
@@ -458,39 +459,38 @@
 
   const guestType = sessionStorage.getItem("guestType");
 
+  // Navigation
+  document.getElementById("scheduleLink").href = "schedule.html";
+  document.getElementById("faqLink").href = "faqs.html";
+
   const churchSection = document.getElementById("churchSection");
   const receptionSection = document.getElementById("receptionSection");
   const hinduSection = document.getElementById("hinduSection");
 
-  if (guestType === "all") {
+  switch (guestType) {
 
-    // Show everything
+    case "all":
+      // Show everything
+      break;
 
-  }
+    case "saturday":
+      hinduSection.style.display = "none";
+      break;
 
-  else if (guestType === "saturday") {
+    case "receptionSunday":
+      churchSection.style.display = "none";
+      break;
 
-    hinduSection.style.display = "none";
+    case "reception":
+      churchSection.style.display = "none";
+      hinduSection.style.display = "none";
+      break;
 
-  }
-
-  else if (guestType === "receptionSunday") {
-
-    churchSection.style.display = "none";
-
-  }
-
-  else if (guestType === "reception") {
-
-    churchSection.style.display = "none";
-    hinduSection.style.display = "none";
-
-  }
-
-  else {
-
-    window.location.replace("index.html");
-
+    default:
+      window.location.replace("index.html");
   }
 
 </script>
+
+  </body>
+</html>
