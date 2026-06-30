@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shannen & Samarth</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Alex+Brush&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{ margin:0; padding:0; box-sizing:border-box; }
 
-    html,
-    body{
+    html, body{
       height:100%;
       background:#000;
     }
@@ -28,6 +23,7 @@
       overflow:hidden;
     }
 
+    /* ===== SCENE ===== */
     .scene{
       position:fixed;
       inset:0;
@@ -37,19 +33,73 @@
       min-height:100vh;
     }
 
+    /* ===== HOME ===== */
     .scene-home{
+      z-index:1;
+      color:#fff;
       background:
         linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
         url("hero.jpg") center/cover no-repeat;
-      color:#fff;
     }
 
+    /* ===== NAV ===== */
+    .topnav{
+      position:fixed;
+      top:28px;
+      left:50%;
+      transform:translateX(-50%);
+      width:calc(100% - 80px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-family:"Montserrat", sans-serif;
+      font-weight:500;
+      text-transform:uppercase;
+      letter-spacing:0.34em;
+      font-size:11px;
+      z-index:10;
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(255,255,255,.22);
+    }
+
+    .topnav .left{
+      display:flex;
+      gap:56px;
+      align-items:center;
+    }
+
+    .topnav a{
+      color:#fff;
+      text-decoration:none;
+      opacity:.78;
+      transition:opacity .2s ease;
+    }
+
+    .topnav a:hover{ opacity:1; }
+
+    .topnav .rsvp{
+      padding:10px 18px;
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:999px;
+      opacity:1;
+      letter-spacing:0.34em;
+      background:rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .locked-link{
+      pointer-events:none;
+      opacity:.30 !important;
+    }
+
+    /* ===== HERO ===== */
     .hero-wrap{
       min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      transform:translateY(25px);
+      transform: translateY(25px);
     }
 
     .home-center{
@@ -59,34 +109,30 @@
     }
 
     .monogram{
-      width:clamp(120px,18vw,220px);
-      margin-bottom:28px;
+      width: clamp(120px, 18vw, 220px);
+      margin-bottom: 28px;
     }
 
-    .monogram img{
-      width:100%;
-      display:block;
-    }
+    .monogram img{ width:100%; }
 
     .names{
-      width:clamp(300px,60vw,520px);
+      width: clamp(300px, 60vw, 520px);
+      margin-bottom: 36px; 
       display:block;
-      margin-bottom:36px;
     }
 
     .date{
-      font-family:"Montserrat",sans-serif;
-      font-size:15px;
+      font-family:"Montserrat", sans-serif;
       font-weight:500;
-      letter-spacing:.15em;
       text-transform:uppercase;
+      letter-spacing:0.15em;
+      font-size:15px;
       opacity:.9;
       margin-bottom:30px;
     }
 
-    .pw-wrap{
-      margin-top:28px;
-    }
+    /* ===== PASSWORD ===== */
+    .pw-wrap{ margin-top:28px; }
 
     .pw-row{
       display:flex;
@@ -95,18 +141,18 @@
 
     .pw-input,
     .pw-btn{
-      height:46px;
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      backdrop-filter: blur(18px) saturate(160%);
+      background: rgba(255,255,255,0.10);
+      border:1px solid rgba(255,255,255,0.28);
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.28);
-      background:rgba(255,255,255,.10);
+      height:46px;
       color:#fff;
-      backdrop-filter:blur(18px) saturate(160%);
-      -webkit-backdrop-filter:blur(18px) saturate(160%);
     }
 
     .pw-input{
-      width:min(300px,72vw);
       padding:0 18px;
+      width:min(300px,72vw);
       outline:none;
       caret-color:#fff;
     }
@@ -117,10 +163,10 @@
     }
 
     .pw-btn{
-      font-family:"Montserrat",sans-serif;
-      font-size:11px;
+      font-family:"Montserrat", sans-serif;
       font-weight:500;
-      letter-spacing:.32em;
+      font-size:11px;
+      letter-spacing:0.32em;
       text-transform:uppercase;
       padding:0 22px;
       cursor:pointer;
@@ -129,12 +175,33 @@
     .pw-error{
       margin-top:10px;
       min-height:14px;
+      font-size:12px;
       text-align:center;
       color:#fff;
-      font-size:12px;
     }
 
+    .is-hidden{ display:none !important; }
+
+    /* ===== MOBILE ===== */
     @media (max-width:768px){
+      .topnav{
+        top: calc(25px + env(safe-area-inset-top));
+        width:100%;
+        padding:0 20px 16px;
+        flex-direction:column;
+        align-items:center;
+        gap:16px;
+        font-size:10px;
+        letter-spacing:0.28em;
+        border-bottom:1px solid rgba(255,255,255,.20);
+      }
+
+      .topnav .left{
+        gap:24px;
+        justify-content:center;
+        flex-wrap:wrap;
+      }
+
       .pw-row{
         flex-direction:column;
         align-items:center;
@@ -146,8 +213,18 @@
         text-align:center;
       }
 
-      .pw-btn{
-        width:160px;
+      .pw-btn{ width:160px; }
+    }
+
+    /* ===== DESKTOP ===== */
+    @media (min-width:769px){
+      .topnav{
+        justify-content:flex-start;
+      }
+
+      .topnav .rsvp{
+        margin-left:56px;
+        padding:4px 14px;
       }
     }
   </style>
@@ -155,111 +232,159 @@
 
 <body>
 
-  <section class="scene scene-home">
+<!-- HOME -->
+<section class="scene scene-home">
 
-    <div class="hero-wrap">
+  <div id="siteNav" class="is-hidden">
+    <nav class="topnav">
+      <div class="left">
+        <a href="index.html" style="font-weight:600; opacity:1;">Home</a>
+        <a data-protected href="welcome.html">Welcome</a>
+        <a data-protected href="schedule.html">Schedule</a>
+        <a data-protected href="faqs.html">FAQs</a>
+      </div>
+      <a data-protected class="rsvp" href="rsvp.html">RSVP</a>
+    </nav>
+  </div>
 
-      <div class="home-center">
+  <div class="hero-wrap">
+    <div class="home-center">
 
-        <div class="monogram">
-          <img src="monogram2.png" alt="Monogram">
+      <div class="monogram">
+        <img src="monogram2.png" alt="Monogram">
+      </div>
+
+      <img class="names" src="signature1.png" alt="Shannen & Samarth">
+
+      <div class="date is-hidden" id="weddingDate">
+        27 · 02 · 27
+      </div>
+
+      <div class="pw-wrap" id="pwWrap">
+        <div class="pw-row">
+          <input 
+            id="pwInput" 
+            class="pw-input" 
+            type="password" 
+            placeholder="Type password here" 
+            autocomplete="off"
+          >
+
+          <button id="pwBtn" class="pw-btn">
+            Enter
+          </button>
         </div>
 
-        <img
-          class="names"
-          src="signature1.png"
-          alt="Shannen & Samarth"
-        >
-
-        <div class="date">
-          27 · 02 · 27
-        </div>
-
-        <div class="pw-wrap">
-
-          <div class="pw-row">
-
-            <input
-              id="pwInput"
-              class="pw-input"
-              type="password"
-              placeholder="Type password here"
-              autocomplete="off"
-            >
-
-            <button
-              id="pwBtn"
-              class="pw-btn"
-            >
-              Enter
-            </button>
-
-          </div>
-
-          <div id="pwError" class="pw-error"></div>
-
-        </div>
-
+        <div class="pw-error" id="pwError"></div>
       </div>
 
     </div>
+  </div>
 
-  </section>
+</section>
 
-  <script>
-    const UNLOCK_KEY = "siteUnlocked";
-    const GUEST_TYPE_KEY = "guestType";
+<script>
 
-    const ALL_PASSWORD = "ss2027";
-    const SATURDAY_PASSWORD = "saturday2027";
-    const RECEPTION_SUNDAY_PASSWORD = "sunday2027";
-    const RECEPTION_PASSWORD = "reception2027";
+  const UNLOCK_KEY = "siteUnlocked";
+  const GUEST_TYPE_KEY = "guestType";
 
-    const pwInput = document.getElementById("pwInput");
-    const pwBtn = document.getElementById("pwBtn");
-    const pwError = document.getElementById("pwError");
+const ALL_PASSWORD = "ss2027";
+const SATURDAY_PASSWORD = "saturday2027";
+const RECEPTION_SUNDAY_PASSWORD = "sunday2027";
+const RECEPTION_PASSWORD = "reception2027";
 
-    function unlockGuest(guestType) {
-      sessionStorage.setItem(UNLOCK_KEY, "1");
-      sessionStorage.setItem(GUEST_TYPE_KEY, guestType);
+  const pwInput = document.getElementById("pwInput");
+  const pwBtn = document.getElementById("pwBtn");
+  const pwWrap = document.getElementById("pwWrap");
+  const weddingDate = document.getElementById("weddingDate");
+  const protectedLinks = document.querySelectorAll("[data-protected]");
+  const pwError = document.getElementById("pwError");
+  const siteNav = document.getElementById("siteNav");
 
-      window.location.href = "welcome.html";
-    }
-
-    function tryUnlock() {
-      const enteredPassword = pwInput.value.trim().toLowerCase();
-
-      if (enteredPassword === ALL_PASSWORD.toLowerCase()) {
-        unlockGuest("all");
-      }
-
-      else if (enteredPassword === SATURDAY_PASSWORD.toLowerCase()) {
-        unlockGuest("saturday");
-      }
-
-      else if (enteredPassword === RECEPTION_SUNDAY_PASSWORD.toLowerCase()) {
-        unlockGuest("receptionSunday");
-      }
-
-      else if (enteredPassword === RECEPTION_PASSWORD.toLowerCase()) {
-        unlockGuest("reception");
-      }
-
-      else {
-        pwError.textContent = "Incorrect password.";
-        pwInput.value = "";
-        pwInput.focus();
-      }
-    }
-
-    pwBtn.addEventListener("click", tryUnlock);
-
-    pwInput.addEventListener("keydown", function(e) {
-      if (e.key === "Enter") {
-        tryUnlock();
-      }
+  function lockUI() {
+    protectedLinks.forEach(link => {
+      link.classList.add("locked-link");
     });
-  </script>
 
-</body>
-</html>
+    pwWrap.classList.remove("is-hidden");
+    weddingDate.classList.add("is-hidden");
+    siteNav.classList.add("is-hidden");
+  }
+
+  function unlockUI() {
+    protectedLinks.forEach(link => {
+      link.classList.remove("locked-link");
+    });
+
+    pwWrap.classList.add("is-hidden");
+    weddingDate.classList.remove("is-hidden");
+    siteNav.classList.remove("is-hidden");
+  }
+
+  if (sessionStorage.getItem(UNLOCK_KEY) === "1") {
+    unlockUI();
+  } else {
+    lockUI();
+  }
+
+  function tryUnlock() {
+
+  const enteredPassword = pwInput.value.trim().toLowerCase();
+
+  if (enteredPassword === ALL_PASSWORD.toLowerCase()) {
+
+    sessionStorage.setItem(UNLOCK_KEY, "1");
+    sessionStorage.setItem(GUEST_TYPE_KEY, "all");
+
+    pwError.textContent = "";
+    unlockUI();
+
+  }
+
+  else if (enteredPassword === SATURDAY_PASSWORD.toLowerCase()) {
+
+    sessionStorage.setItem(UNLOCK_KEY, "1");
+    sessionStorage.setItem(GUEST_TYPE_KEY, "saturday");
+
+    pwError.textContent = "";
+    unlockUI();
+
+  }
+
+  else if (enteredPassword === RECEPTION_SUNDAY_PASSWORD.toLowerCase()) {
+
+    sessionStorage.setItem(UNLOCK_KEY, "1");
+    sessionStorage.setItem(GUEST_TYPE_KEY, "receptionSunday");
+
+    pwError.textContent = "";
+    unlockUI();
+
+  }
+
+  else if (enteredPassword === RECEPTION_PASSWORD.toLowerCase()) {
+
+    sessionStorage.setItem(UNLOCK_KEY, "1");
+    sessionStorage.setItem(GUEST_TYPE_KEY, "reception");
+
+    pwError.textContent = "";
+    unlockUI();
+
+  }
+
+  else {
+
+    pwError.textContent = "Incorrect password.";
+    pwInput.value = "";
+    pwInput.focus();
+
+  }
+
+}
+
+pwBtn.addEventListener("click", tryUnlock);
+
+pwInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    tryUnlock();
+  }
+});
